@@ -57,4 +57,24 @@ class Complex {
         y = i*((x2*y1-x1*y2)/(Math.pow(x2, 2)+Math.pow(y2, 2)));
         System.out.print("Разность чисел z = " + x+y);
     }
+    void module(double z1, double z2) {
+        x = Math.abs(z1);
+        y = Math.abs(z2);
+        System.out.printf("Модуль чисел z = (%f, %f)", x, y);
+    }
+    void compare(double x1, double x2, double y1, double y2) {
+        boolean xB = false;
+        boolean yB = false;
+        boolean zB = false;
+        if (x1 == x2)
+            xB = true;
+        if (y1 == y2)
+            yB = true;
+        if (xB == yB) {
+            zB = true;
+        }
+        if (zB) {
+            System.out.print("Числа равны");
+        } else System.out.print("Числа не равны");
+    }
 }
