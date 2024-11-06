@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Complex {
     public double getX() {
         return x;
@@ -57,10 +59,12 @@ class Complex {
         y = i*((x2*y1-x1*y2)/(Math.pow(x2, 2)+Math.pow(y2, 2)));
         System.out.print("Разность чисел z = " + x+y);
     }
-    void module(double z1, double z2) {
-        x = Math.abs(z1);
-        y = Math.abs(z2);
-        System.out.printf("Модуль чисел z = (%f, %f)", x, y);
+    void module(double x1, double x2, double y1, double y2) {
+        double xM1 = Math.abs(x1);
+        double xM2 = Math.abs(x2);
+        double yM1 = Math.abs(y1);
+        double yM2 = Math.abs(y2);
+        System.out.printf("Модули чисел z = (%f, %f) и (%f, %f)", xM1, xM2, yM1, yM2);
     }
     void compare(double x1, double x2, double y1, double y2) {
         boolean xB = false;
@@ -76,5 +80,25 @@ class Complex {
         if (zB) {
             System.out.print("Числа равны");
         } else System.out.print("Числа не равны");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Complex complex = new Complex();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Проверка методов. Введите значения x1, x2, y1, y2, i");
+        double x1 = scanner.nextDouble();
+        double x2 = scanner.nextDouble();
+        double y1 = scanner.nextDouble();
+        double y2 = scanner.nextDouble();
+        double i = scanner.nextDouble();
+        complex.str();
+        complex.add(x1, x2, y1, y2);
+        complex.sub(x1, x2, y1, y2);
+        complex.mul(x1, x2, y1, y2);
+        complex.div(x1, x2, y1, y2, i);
+        complex.module(x1, x2, y1, y2);
+        complex.compare(x1, x2, y1, y2);
     }
 }
